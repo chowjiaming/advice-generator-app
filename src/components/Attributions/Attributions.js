@@ -1,6 +1,7 @@
 import React from 'react'
+import './Attributions.css'
 
-export default function Attribution() {
+export default function Attributions() {
     return (
         <footer>
             <p className="attribution">

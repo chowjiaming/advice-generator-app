@@ -1,15 +1,28 @@
 import React from 'react'
-import Button from '../Button/Button'
+import { useState } from 'react'
+import useFetchAdvice from '../../helpers/useGetAdvice'
+import Advice from '../Advice/Advice'
 import Divider from '../Divider/Divider'
+import Button from '../Button/Button'
 import './Card.css'
 
 export default function Card() {
+    const [adviceCounter, setAdviceCounter] = useState(0);
+    const { advice, isLoading, error } = useFetchAdvice(adviceCounter);
+
     return (
         <div className="card">
-            <div className="card-title">TEST TITLE</div>
-            <div className="advice">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <Advice
+                adviceCounter={adviceCounter}
+                advice={advice}
+                isLoading={isLoading}
+                error={error}
+            />
             <Divider />
-            <Button />
+            <Button
+                adviceCounter={adviceCounter}
+                setAdviceCounter={setAdviceCounter}
+            />
         </div>
     )
 }

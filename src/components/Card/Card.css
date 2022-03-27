@@ -7,11 +7,13 @@
   background-color: hsl(217, 19%, 24%);
   padding: 2em;
   position: relative;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.1);;
 }
 
 .card-title {
   color: hsl(150, 100%, 66%);
   font-weight: 400;
+  text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.5rem;
   margin-bottom: 2em;

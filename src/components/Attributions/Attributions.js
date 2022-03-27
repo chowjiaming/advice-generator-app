@@ -1,4 +1,3 @@
-import React from 'react'
 import './Attributions.css'
 
 export default function Attributions() {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import useFetchAdvice from '../../helpers/useGetAdvice'
 import Advice from '../Advice/Advice'
@@ -19,10 +18,7 @@ export default function Card() {
                 error={error}
             />
             <Divider />
-            <Button
-                adviceCounter={adviceCounter}
-                setAdviceCounter={setAdviceCounter}
-            />
+            <Button setAdviceCounter={setAdviceCounter} />
         </div>
     )
 }

@@ -7,13 +7,34 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 50%;
-  bottom: 0;
-  transform: translate(50%, 50%);
+  right: calc(50% - 1.125em);
+  bottom: -1.125em;
 }
 
 .button:hover {
   cursor: pointer;
   box-shadow: 0 0 1em 0.33em hsl(150, 100%, 66%);
   background-color: hsl(193, 38%, 86%);
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.spin:hover {
+  cursor: auto;
+  box-shadow: none;
+  background-color: hsl(150, 100%, 66%);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

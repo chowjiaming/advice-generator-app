@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](https://imgur.com/a/kwLDXk0)
+![](./advice-generator-app-screenshot.png)
 
 ### Links
 

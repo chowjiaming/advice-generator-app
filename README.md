@@ -78,5 +78,5 @@ const handleClick = (e) => {
 
 - Website - [Joseph Chow](https://josephchow.dev)
 - Github - [@chowjiaming](https://github.com/chowjiaming)
-- Frontend Mentor - [@chowjiaming](hhttps://www.frontendmentor.io/profile/chowjiaming)
+- Frontend Mentor - [@chowjiaming](https://www.frontendmentor.io/profile/chowjiaming)
 - Twitter - [@couri3r](https://twitter.com/Couri3r)

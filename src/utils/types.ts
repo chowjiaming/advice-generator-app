@@ -1,6 +1,8 @@
-type Advice = {
-  advice: string;
-  slip_id: string;
+export type Advice = {
+  slip: {
+    id: number;
+    advice: string;
+  };
 };
 
 export type AppState = {

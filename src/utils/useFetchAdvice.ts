@@ -1,5 +1,5 @@
-import {useReducer, useEffect, useCallback} from 'react';
-import {FetchAction, AppState} from './types';
+import {useReducer, useEffect} from 'react';
+import {type FetchAction, type AppState} from './types';
 import {API_URL} from './constants';
 
 const ACTIONS = {
@@ -25,7 +25,7 @@ function reducer(state: AppState, action: FetchAction): AppState {
   }
 }
 
-export default function useFetchAdvice(): AppState & {
+export function useFetchAdvice(): AppState & {
   fetchNewAdvice: () => void;
 } {
   const [state, dispatch] = useReducer(reducer, {
@@ -33,34 +33,29 @@ export default function useFetchAdvice(): AppState & {
     isLoading: true,
   });
 
-  const fetchNewAdvice = useCallback(async (signal: AbortSignal) => {
-    dispatch({type: ACTIONS.MAKE_REQUEST});
-    try {
-      const res = await fetch(API_URL, {signal});
-      const data = await res.json();
-      dispatch({
-        type: ACTIONS.GET_DATA,
-        payload: {data},
-      });
-    } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') return;
-      dispatch({type: ACTIONS.ERROR, payload: {error: error as Error}});
-    }
-  }, []);
-
-  useEffect(() => {
+  function fetchNewAdvice() {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    fetchNewAdvice(signal);
+    dispatch({type: ACTIONS.MAKE_REQUEST});
+    fetch(API_URL, {signal})
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({type: ACTIONS.GET_DATA, payload: {data}});
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          dispatch({type: ACTIONS.ERROR, payload: {error}});
+        }
+      });
 
-    return () => {
-      abortController.abort();
-    };
-  }, [fetchNewAdvice]);
+    return () => abortController.abort();
+  }
 
-  return {
-    ...state,
-    fetchNewAdvice: () => fetchNewAdvice(new AbortController().signal),
-  };
+  useEffect(() => {
+    const cleanup = fetchNewAdvice();
+    return () => cleanup();
+  }, []);
+
+  return {...state, fetchNewAdvice};
 }

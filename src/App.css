@@ -83,7 +83,7 @@
 .spin:hover {
   background-color: var(--accent-color);
   box-shadow: none;
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 @keyframes spin {

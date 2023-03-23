@@ -1,0 +1,96 @@
+.advice {
+  margin-bottom: 2em;
+}
+
+.app {
+  align-items: center;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 2em;
+}
+
+.attribution {
+  color: var(--primary-text-color);
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 1rem;
+  right: 50%;
+  text-align: center;
+  transform: translateX(50%);
+}
+
+.attribution a {
+  color: var(--link-color);
+}
+
+.button {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  bottom: -1.125em;
+  display: flex;
+  align-items: center;
+  height: 2.25em;
+  justify-content: center;
+  position: absolute;
+  right: calc(50% - 1.125em);
+  width: 2.25em;
+}
+
+.button:hover {
+  background-color: var(--primary-text-color);
+  box-shadow: 0 0 1em 0.33em var(--accent-color);
+  cursor: pointer;
+}
+
+.card {
+  background-color: var(--secondary-bg-color);
+  border-radius: 0.5em;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.1);
+  color: var(--primary-text-color);
+  font-size: 28px;
+  max-width: 25em;
+  padding: 2em;
+  position: relative;
+  text-align: center;
+}
+
+.card-title {
+  color: var(--accent-color);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5rem;
+  margin-bottom: 2em;
+  text-transform: uppercase;
+}
+
+.divider {
+  margin: 0 auto;
+  padding-bottom: 1em;
+  width: 80%;
+}
+
+.spin {
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-timing-function: linear;
+}
+
+.spin:hover {
+  background-color: var(--accent-color);
+  box-shadow: none;
+  cursor: auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
